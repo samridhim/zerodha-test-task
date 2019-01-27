@@ -20,7 +20,7 @@ class HelloWorld(object):
 		else:
 			if name is None:
 			# No name was specified
-			return 'Please enter the right name <a href="./">here</a>.'
+				return 'Please enter the right name <a href="./">here</a>.'
 
 if __name__ == '__main__':
 	cherrypy.quickstart(HelloWorld())
