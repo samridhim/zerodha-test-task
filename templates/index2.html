@@ -1,0 +1,30 @@
+<html>
+<h1> Details for {{name}} </h1>
+
+{% raw %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% endraw %}
+<table class = "table table-striped table-bordered table-condensed">
+<tr> 
+<td><b> Name </td>
+<td><b>Code </td>
+<td><b>Open </td>
+<td><b>High </td>
+<td><b>Low </td>
+<td><b>Close </td>
+<td><b>Gain (in %) </td>
+</tr>
+<tr class = "success"> 
+<td> {{name}} </td>
+<td> {{conn.hgetall(name)["code"]}} </td>
+<td> {{conn.hgetall(name)["open"]}} </td>
+<td> {{conn.hgetall(name)["high"]}} </td>
+<td> {{conn.hgetall(name)["low"]}} </td>
+<td> {{conn.hgetall(name)["close"]}} </td>
+<td> {{conn.hgetall(name)["gain"]}} % </td>
+</tr>
+</table>
+To return back click <a href="./">here</a>.
