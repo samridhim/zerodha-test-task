@@ -1,8 +1,10 @@
 import cherrypy
 import redis
+import os
+import operator
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('templates'))
-conn = redis.Redis("localhost")
+conn = redis.from_url(os.environ.get("REDIS_URL"), charset="utf-8", decode_responses=True)
 class HelloWorld(object):
     @cherrypy.expose
     def index(self):
